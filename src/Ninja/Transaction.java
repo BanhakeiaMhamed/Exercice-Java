@@ -18,13 +18,17 @@ public class Transaction implements Runnable{
     public void run() {
         System.out.println(this.bancKAccount);
         if(this.isDeposit) {
-            System.out.println("|"+Thread.currentThread().getName()+"|=>un virement arrive sur "+this.bancKAccount.getAccountNumber());
+            System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+            System.out.println(Thread.currentThread().getName()+" <= un virement arrive sur "+this.bancKAccount.getAccountNumber());
             this.bancKAccount.deposit(this.amount);
+            System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"+"\n");
 
         }
         if(this.isWithDraw) {
-            System.out.println("|"+Thread.currentThread().getName()+"|=>un prélévement arrive sur "+this.bancKAccount.getAccountNumber());
+            System.out.println("----------------------------------------------------------------------------------------");
+            System.out.println(Thread.currentThread().getName()+"<= un prélévement arrive sur "+this.bancKAccount.getAccountNumber());
             this.bancKAccount.withdraw(this.amount);
+            System.out.println("---------------------------------------------------------------------------------------"+"\n");
 
         }
 

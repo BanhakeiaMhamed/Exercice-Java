@@ -5,7 +5,7 @@ import java.lang.reflect.Method;
 
 public class Bank  {
     public void performTransactions() {
-        System.out.println("Reflexion : ");
+        System.out.println("l'affichage des méthodes utilisées En utilisant Reflexion en Java  : ");
         displayMethodNamesOfbankAccount(BancKAccount.class);
         BancKAccount compte_1 = new BancKAccount("xxxxxx-A",1000);
         BancKAccount compte_2 = new BancKAccount("xxxxxx-B",5000);
