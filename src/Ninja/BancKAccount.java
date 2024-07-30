@@ -1,5 +1,6 @@
 package Ninja;
 
+import java.sql.SQLOutput;
 import java.util.Objects;
 
 public class BancKAccount {
@@ -14,7 +15,27 @@ public class BancKAccount {
     public BancKAccount() {
     }
 
-    public String getAccountNumber() {
+    public synchronized void withdraw(double x) {
+        if(this.balance>0 && this.balance>=x) {
+            this.balance -=x;
+            System.out.println("un prlevement a eu lieu de "+x+" : "+this.accountNumber);
+            System.out.println("balance: "+this.balance+" : "+this.accountNumber);
+        } else {
+            System.out.println("votre solde est inssufisant :"+balance+" pour le prelevement "+x);
+        }
+
+    }
+
+    public synchronized void deposit(double y) {
+        if(y>0) {
+            this.balance+=y;
+            System.out.println("un viremment a eu lieu d'un monant de "+y+" : "+this.accountNumber);
+            System.out.println("balance: "+this.balance+" : "+this.accountNumber);
+        }
+
+    }
+
+    public  synchronized String getAccountNumber() {
         return accountNumber;
     }
 
@@ -22,7 +43,7 @@ public class BancKAccount {
         this.accountNumber = accountNumber;
     }
 
-    public double getBalance() {
+    public synchronized double getBalance() {
         return balance;
     }
 
@@ -45,10 +66,10 @@ public class BancKAccount {
 
     @Override
     public String toString() {
-        return "BancKAccount{" +
+        return "BancKAccount = [ " +
                 "accountNumber='" + accountNumber + '\'' +
                 ", balance=" + balance +
-                '}';
+                ']';
     }
 
 
