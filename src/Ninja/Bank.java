@@ -47,12 +47,15 @@ public class Bank  {
             throw new RuntimeException(e);
         }
 
-        System.out.println("Apres les transactions: ");
-        displayMethodNamesOfbankAccount(BancKAccount.class);
+        System.out.println("Après les transactions: ");
+
         System.out.println("######"+compte_1);
         System.out.println("######"+compte_2);
         System.out.println("######"+compte_3);
         System.out.println("#####"+compte_4);
+
+        System.out.println("les méthodes utilisées en utilisant reflexion");
+        displayMethodNamesOfbankAccount(BancKAccount.class);
 
     }
 
